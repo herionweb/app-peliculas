@@ -1,0 +1,19 @@
+<div class="swiper-container mt-5">
+
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide" *ngFor="let pelicula of this.peliculaCredits">
+            <img class="img-thumbnail" [src]="pelicula.profile_path | noImagen" alt="{{pelicula.name}}">
+            <div class="movie-description">
+                <h5 class="mt-1">{{pelicula.name}}</h5>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev text-white" (click)="onclickBack()"></div>
+    <div class="swiper-button-next text-white" (click)="onclickNext()"></div>
+</div>

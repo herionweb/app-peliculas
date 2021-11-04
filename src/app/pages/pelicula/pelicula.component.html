@@ -1,0 +1,36 @@
+<div class="row mt-5 animate__animated animate__fadeIn" *ngIf="peliculaDetails">
+    <div class="col-md-6">
+        <img class="img-thumbnail" [src]="peliculaDetails.poster_path | noImagen" [alt]="peliculaDetails.title">
+    </div>
+    <div class="col-md-6 mt-4">
+        <h2 class="display-3">{{peliculaDetails.title}}</h2>
+
+        <div class="row p-2">
+            <div class="col-10">
+                <star-rating [value]="peliculaDetails.vote_average" totalstars=10 checkedcolor="yellow" uncheckedcolor="grey" size="20px" readonly="false">
+                </star-rating>
+            </div>
+            <div class="col-2 text-white">
+                <span class="votacion-numero">{{peliculaDetails.vote_average | number: '1.1-2'}}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mt-4">
+                <p>{{peliculaDetails.overview}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-danger mt-2" type="button" (click)="back()">Atrás</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <app-creditos-slide-show [peliculaCredits]="peliculaCredits" *ngIf="peliculaCredits"></app-creditos-slide-show>>
+        </div>
+    </div>
